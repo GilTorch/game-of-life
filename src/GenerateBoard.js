@@ -1,4 +1,4 @@
-export function generateBoard(rows,columns){
+export default function generateBoard(rows,columns){
     var arr=[];
 
     for (var i=0;i<rows;i++){

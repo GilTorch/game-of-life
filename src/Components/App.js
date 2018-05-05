@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
-import Board from './Components/Board';
+import '../App.css';
+import Board from './Board';
 
 class App extends Component {
 
@@ -64,13 +63,13 @@ class App extends Component {
     }
   }
 
-componentDidMount(){
-  this.setState({
-    timer:setInterval(function(){
-      this.state.generation++;
-    },this.state.timeInterval)
-  });
-}
+// componentDidMount(){
+//   this.setState({
+//     timer:setInterval(function(){
+//       this.state.generation++;
+//     },this.state.timeInterval)
+//   });
+// }
  
   render() {
 
