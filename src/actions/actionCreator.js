@@ -1,38 +1,59 @@
-export function setBoardSize(rows,columns){
-    return {
-        type:'RESIZE_BOARD',
-        rows,
-        columns
-    }
+/*
+
+state={
+rows:4,
+columns:5,
+generation:0,
+speed:MEDIUM //MEDIUM,NORMAL,FAST,NO_SPEED
+board:[
+[0,0,0,0,0],
+[0,0,0,0,0],
+[0,0,0,0,0],
+[0,0,0,0,0],
+]
 }
 
 
-export function setAnimationSpeed(speedLevel){
-    return {
-        type:'SET_ANIMATION_SPEED',
-        speedLevel
-    }
+*/
+
+
+
+export function setBoardSize(rows, columns) {
+    return {type: 'BOARD_SIZE', rows, columns}
 }
 
-
-export function toggleCellState(cellId){
-
-    return {
-        type:'TOOGLE_CELL_STATE',
-        cellId
-    }
-    
+export function setBoardSpeed(speedLevel) {
+    return {type: 'BOARD_SPEED', speedLevel}
 }
 
+//simulation Controls
 
-export function controlGame(action){
-    return {
-        type:'GAME_CONTROLS',
-        action
-    }
+export function run(speedLevel) {
+
+    return {type: 'RUN',speedLevel}
+
 }
 
+export function pause() {
 
-export function checkCellNeighbours(){
-    
+    return {type: 'PAUSE'}
+
+}
+
+export function clear() {
+
+    return {type: 'CLEAR'}
+
+}
+
+//
+
+export function incrementGeneration() {
+
+    return {type: 'INCREMENT_GENERATION'}
+
+}
+
+export function toggleCellState(cellRow, cellCol) {
+    return {type: 'TOGGLE_CELL_STATE', cellRow, cellCol}
 }

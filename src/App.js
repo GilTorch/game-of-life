@@ -10,7 +10,8 @@ class App extends Component {
     this.state={
       rows:50,
       columns:30,
-      interval:1000
+      timeInterval:1000,
+      generation:0
     }
 
     // this.setBoardSize=this.setBoardSize.bind(this);
@@ -26,6 +27,7 @@ class App extends Component {
 
   run(){
     console.log('run');
+  
   }
 
   pause(){
@@ -34,6 +36,8 @@ class App extends Component {
 
   clear(){
     console.log('clear');
+
+    clearInterval(this.state.timer);
   }
 
 
@@ -60,12 +64,16 @@ class App extends Component {
     }
   }
 
-
-
-
+componentDidMount(){
+  this.setState({
+    timer:setInterval(function(){
+      this.state.generation++;
+    },this.state.timeInterval)
+  });
+}
  
   render() {
-     
+
     return (
       <div className="App">
         <header className="App-header">
@@ -76,7 +84,7 @@ class App extends Component {
           <button onClick={()=>this.pause()}>Pause</button>
           <button onClick={()=>this.clear()}>Clear</button>
           <p>
-            Generation: <span>0</span>
+            Generation: <span>{this.state.generation}</span>
           </p>
         </div>
         <div className="board-container">
