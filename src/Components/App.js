@@ -72,7 +72,7 @@ class App extends Component {
 // }
  
   render() {
-
+    console.log('props from redux: '+this.props.rows);
     return (
       <div className="App">
         <header className="App-header">
@@ -83,23 +83,23 @@ class App extends Component {
           <button onClick={()=>this.pause()}>Pause</button>
           <button onClick={()=>this.clear()}>Clear</button>
           <p>
-            Generation: <span>{this.state.generation}</span>
+            Generation: <span>{this.props.generation}</span>
           </p>
         </div>
         <div className="board-container">
-          <Board columns={this.state.columns} rows={this.state.rows}/>
+          <Board columns={this.props.columns} rows={this.props.rows} {...this.props}/>
         </div>
         <div>
           <h2>Board Size</h2>
           <div className="board-size-controls">
-            <button ref="small-size" onClick={()=>this.setBoardSize(50,30)}>50x30</button>
-            <button ref="medium-size" onClick={()=>this.setBoardSize(70,50)}>70x50</button>
-            <button ref="large-size" onClick={()=>this.setBoardSize(100,80)}>100x80</button>
+            <button ref="small-size" onClick={()=>this.props.setBoardSize(50,30)}>50x30</button>
+            <button ref="medium-size" onClick={()=>this.props.setBoardSize(70,50)}>70x50</button>
+            <button ref="large-size" onClick={()=>this.props.setBoardSize(100,80)}>100x80</button>
           </div>
           <div className="app-speed-controls">
-            <button  onClick={()=>this.setSimulationSpeed("SLOW")}>slow</button>
-            <button  onClick={()=>this.setSimulationSpeed("MEDIUM")}>medium</button>
-            <button  onClick={()=>this.setSimulationSpeed("FAST")}>fast</button>
+            <button  onClick={()=>this.props.setBoardSpeed("SLOW")}>slow</button>
+            <button  onClick={()=>this.props.setBoardSpeed("MEDIUM")}>medium</button>
+            <button  onClick={()=>this.props.setBoardSpeed("FAST")}>fast</button>
           </div>
         </div>
       </div>

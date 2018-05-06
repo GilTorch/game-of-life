@@ -55,5 +55,5 @@ export function incrementGeneration() {
 }
 
 export function toggleCellState(cellRow, cellCol) {
-    return {type: 'TOGGLE_CELL_STATE', cellRow, cellCol}
+    return {type: 'TOGGLE_CELL_LIFE', cellRow, cellCol}
 }

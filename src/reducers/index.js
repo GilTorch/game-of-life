@@ -121,8 +121,8 @@ nextState={
 
  */
 import generateDefaultBoard from '../GenerateBoard';
-import { combineReducers } from 'redux';
-function gameControls(state={},action){
+
+function rootReducer(state={},action){
     switch(action.type){
         case 'RUN':
             return Object.assign({},state,{speed:action.speedLevel});
@@ -133,15 +133,33 @@ function gameControls(state={},action){
         case 'CLEAR':
             return Object.assign({},state,{generation:0,board:generateDefaultBoard(state.rows,state.columns),speed:action.speedLevel});
             break;
+        case 'BOARD_SIZE':
+            return Object.assign({},state,{rows:action.rows,columns:action.columns});
+            break;
+        case 'BOARD_SPEED':
+            return Object.assign({},state,{speed:action.speedLevel});
+            break;
+        case 'TOGGLE_CELL_LIFE':
+            let board=state.board;
+            var cellRow=action.cellRow;
+            var cellCol=action.cellCol;
+            let cell=(board[cellRow][cellCol]===1)?0:1;
+            return {
+                ...state,
+                board:[
+                    ...board.slice(0,cellRow),
+                    [...board[cellRow].slice(0,cellCol),cell,...board[cellRow].slice(cellCol+1)],
+                    ...board.slice(cellRow+1)
+                ]
+            };
+            break;
         default:
             return state;
             break;
     }
 }
 
-const rootReducer=combineReducers({
-    gameControls:gameControls
-})
+
 
 
 export default rootReducer;
