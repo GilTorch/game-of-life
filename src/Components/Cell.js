@@ -13,7 +13,7 @@ class Cell extends React.Component{
 
   
    
-    toggleCellLife(){
+    toggleCellLife(row,col){
         this.setState({
             alive:!this.state.alive
         });
@@ -21,9 +21,10 @@ class Cell extends React.Component{
         console.log(this.state.alive);
     }
 
+
     render(){
         return(
-            <td className={this.state.alive?'cell':''} onClick={()=>this.toggleCellLife()}></td>
+            <td className={(this.props.board[this.props.row][this.props.col]===1)?"cell":""}  onClick={()=>this.props.toggleCellState(this.props.row,this.props.col)}></td>
         )
     }
 }

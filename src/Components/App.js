@@ -87,7 +87,7 @@ class App extends Component {
           </p>
         </div>
         <div className="board-container">
-          <Board columns={this.state.columns} rows={this.state.rows}/>
+          <Board columns={this.state.columns} rows={this.state.rows} {...this.props}/>
         </div>
         <div>
           <h2>Board Size</h2>

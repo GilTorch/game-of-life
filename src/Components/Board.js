@@ -27,7 +27,7 @@ class Board extends Component {
         for(var i=0;i<this.props.rows;i++){
             var columns=[];
             for(var j=0;j<this.props.columns;j++){
-                columns.push(<Cell row={i} col={j} key={cellKey} cellId={cellKey}/>);
+                columns.push(<Cell row={i} col={j} key={cellKey} cellId={cellKey} {...this.props}/>);
                 cellKey++;
             }
             board.push(<tr key={i}>{columns}</tr>);

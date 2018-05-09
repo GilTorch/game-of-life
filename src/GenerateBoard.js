@@ -4,7 +4,7 @@ export default function generateBoard(rows,columns){
     for (var i=0;i<rows;i++){
         var row=[];
         for(var j=0;j<columns;j++){
-            row.push(0);
+            row.push(Math.round(Math.random()*1));
         }
         arr.push(row);
     }
