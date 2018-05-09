@@ -22,8 +22,8 @@ export function setBoardSize(rows, columns) {
     return {type: 'BOARD_SIZE', rows, columns}
 }
 
-export function setBoardSpeed(speedLevel) {
-    return {type: 'BOARD_SPEED', speedLevel}
+export function setSimulationSpeed(speed) {
+    return {type: 'SIMULATION_SPEED', speed}
 }
 
 //simulation Controls

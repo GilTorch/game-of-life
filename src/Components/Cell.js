@@ -1,5 +1,4 @@
 import React from 'react';
-import { ClientResponse } from 'http';
 
 
 class Cell extends React.Component{
