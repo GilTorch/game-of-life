@@ -11,10 +11,8 @@ import App from './Components/App';
 function mapStateToProps(state){
 
     return {
-       rows:state.rows,
-       columns:state.columns,
-       speed:state.speed,
        generation:state.generation,
+       speed:state.generation,
        board:state.board
     }
 }

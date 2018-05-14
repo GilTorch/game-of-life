@@ -18,12 +18,12 @@ board:[
 
 
 
-export function setBoardSize(rows, columns) {
+export function changeBoardSize(rows, columns) {
     return {type: 'BOARD_SIZE', rows, columns}
 }
 
-export function setSimulationSpeed(speed) {
-    return {type: 'SIMULATION_SPEED', speed}
+export function changeSpeed(speed) {
+    return {type: 'SPEED', speed}
 }
 
 //simulation Controls
@@ -40,20 +40,16 @@ export function pause() {
 
 }
 
-export function clear() {
+export function clear(rows,cols) {
 
-    return {type: 'CLEAR'}
-
-}
-
-//
-
-export function incrementGeneration() {
-
-    return {type: 'INCREMENT_GENERATION'}
+    return {type: 'CLEAR',rows,cols}
 
 }
 
-export function toggleCellState(cellRow, cellCol) {
-    return {type: 'TOGGLE_CELL_STATE', cellRow, cellCol}
+export function tick(){
+    return {type:'TICK'}
+}
+
+export function toggleCellState(row, col) {
+    return {type: 'TOGGLE_CELL_STATE',row,col}
 }

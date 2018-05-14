@@ -6,14 +6,12 @@ import generateDefaultBoard from './GenerateBoard';
 
 //default data
 
-const defaultRows=50;
-const defaultColumns=30;
+const defaultRows=30;
+const defaultColumns=50;
 
 const defaultState={
-    rows:defaultRows,
-    columns:defaultColumns,
     generation:0,
-    speed:300, //MEDIUM,NORMAL,FAST,NO_SPEED
+    speed:100, //MEDIUM,NORMAL,FAST,NO_SPEED
     board:generateDefaultBoard(defaultRows,defaultColumns,true)
 };
 
