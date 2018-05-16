@@ -38,14 +38,14 @@ componentDidMount(){
         <div>
           <h2>Board Size</h2>
           <div className="board-size-controls">
-            <button ref="small-size" onClick={()=>this.props.setBoardSize(50,30)}>50x30</button>
-            <button ref="medium-size" onClick={()=>this.props.setBoardSize(70,50)}>70x50</button>
-            <button ref="large-size" onClick={()=>this.props.setBoardSize(100,80)}>100x80</button>
+            <button ref="small-size" onClick={()=>this.props.changeBoardSize(50,30)}>50x30</button>
+            <button ref="medium-size" onClick={()=>this.props.changeBoardSize(70,50)}>70x50</button>
+            <button ref="large-size" onClick={()=>this.props.changeBoardSize(100,80)}>100x80</button>
           </div>
           <div className="app-speed-controls">
-            <button  onClick={()=>this.props.changeSpeed(500)}>slow</button>
-            <button  onClick={()=>this.props.changeSpeed(300)}>medium</button>
-            <button  onClick={()=>this.props.changeSpeed(100)}>fast</button>
+            <button  onClick={()=>this.props.changeSpeed(300)}>slow</button>
+            <button  onClick={()=>this.props.changeSpeed(100)}>medium</button>
+            <button  onClick={()=>this.props.changeSpeed(50)}>fast</button>
           </div>
         </div>
       </div>
