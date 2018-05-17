@@ -5,22 +5,25 @@
 
 table{
   border-collapse: collapse;
-}
-
-td{
-  width:12px;
-  height:12px;
-  /* border:1px solid #111; */
+  box-shadow: 10px -2px 10px rgba(0,0,0,0.3);
   background-color:black;
 }
 
+td{
+  width:20px;
+  height:20px;
+  background-color:rgba(0,0,0,0);
+  border:1px solid #333; 
+}
+
 td:hover{
-  background:rgba(255,255,255,0.2);
+  background:gray;
 }
 
 
 .board-container{
   display:flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
@@ -34,7 +37,7 @@ td:hover{
   background-color: #222;
   height: 150px;
   padding: 20px;
-  color: white;
+  color: gray;
 }
 
 .App-title {
@@ -52,22 +55,23 @@ td:hover{
 
 
 .cell{
-  background-color: #ffff00;
+  background:radial-gradient(#48ff00, #ffd900);
 }
 
 .old-cell{
-  background-color: rgb(255, 0, 0);
+  background:radial-gradient(#001aff,#008cff);
 }
 
 .legends-container{
   display:flex;
-  justify-content: space-around;
+  justify-content: center;
 }
 
 .legend-container{
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin:1%;
 }
 
 .legend{

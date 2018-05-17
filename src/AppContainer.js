@@ -11,6 +11,9 @@ import App from './Components/App';
 function mapStateToProps(state){
 
     return {
+       cleared:state.cleared,
+       running:state.running,
+    //    paused:state.paused,
        generation:state.generation,
        speed:state.generation,
        board:state.board

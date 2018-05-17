@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 
 import Cell from './Cell';
+import Legends from './Legends';
 
 class Board extends Component {
 

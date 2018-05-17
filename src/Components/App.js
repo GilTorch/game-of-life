@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../App.css';
+import '../css/App.css';
 import Board from './Board';
 import AppControls from './AppControls';
 import SizeControls from './SizeControls';
@@ -24,7 +24,8 @@ componentDidMount(){
 }
  
 componentWillReceiveProps(newProps){
-  // clearInterval(App.timer);
+  if(newProps.cleared)
+    clearInterval(App.timer);
 }
 
   render() {
@@ -37,11 +38,9 @@ componentWillReceiveProps(newProps){
           <div>
             <h2>Generation: <span>{this.props.generation}</span></h2>
           </div>
-          <div>
-            <Legends/>
-          </div>
         <AppControls run={this.props.run} clear={this.props.clear} pause={this.props.pause}/>
         <div className="board-container">
+           <Legends/>  
           <Board board={this.props.board} {...this.props}/>
         </div>
         <div>
