@@ -10,11 +10,16 @@ function boardReducer(state=generateBoard(50,70),action){
         break;
         case 'BOARD_SIZE':
             return generateBoard(action.rows,action.columns);
+        break;
         case 'TOGGLE_CELL_STATE':
             var cell=state[action.row][action.col];
             cell.status=cell.status===1?0:1;
             cell.newborn=cell.newborn===1?0:1;
-            return state;
+            return [
+                ...state.slice(0,action.row),
+                [...state[action.row].slice(0,action.col),cell,...state[action.row].slice(action.col+1)],
+                ...state.slice(action.row+1)
+            ];
         break;
         case 'CLEAR':
             var rows=state.length;

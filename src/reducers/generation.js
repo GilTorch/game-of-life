@@ -4,6 +4,7 @@ function generation(state=0,action){
             return state+1;
         break;
         case 'CLEAR':
+        case 'CLEAR':
             state=0;
             return state;
         break;

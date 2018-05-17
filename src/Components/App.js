@@ -18,14 +18,23 @@ class App extends Component {
   }
 
 componentDidMount(){
-  console.log(this.props.board);
   
-  App.timer=setInterval(this.props.tick,this.props.speed);
+  App.timer=this.createTimer();
 }
  
 componentWillReceiveProps(newProps){
-  if(newProps.cleared)
+  if(newProps.cleared || newProps.paused){
     clearInterval(App.timer);
+  }else{
+    if(newProps.cleared!==this.props.cleared)
+      App.timer=this.createTimer();
+  }
+
+}
+
+createTimer(){
+  var timer=setInterval(this.props.tick,this.props.speed);
+  return timer;
 }
 
   render() {

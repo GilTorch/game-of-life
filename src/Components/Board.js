@@ -7,10 +7,6 @@ class Board extends Component {
 
     constructor(props){
         super(props);
-        this.state={
-            generation:0,
-            interval:1000
-        }
     }
 
     shouldComponentUpdate(nextProps){
