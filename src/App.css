@@ -5,15 +5,19 @@
 
 table{
   border-collapse: collapse;
-  border:3px solid #aaa;
 }
 
 td{
   width:12px;
   height:12px;
-  border:3px solid white;
-  background-color:white;
+  /* border:1px solid #111; */
+  background-color:black;
 }
+
+td:hover{
+  background:rgba(255,255,255,0.2);
+}
+
 
 .board-container{
   display:flex;
@@ -48,9 +52,25 @@ td{
 
 
 .cell{
-  background-color: black;
+  background-color: #ffff00;
 }
 
 .old-cell{
-  background-color: green;
+  background-color: rgb(255, 0, 0);
+}
+
+.legends-container{
+  display:flex;
+  justify-content: space-around;
+}
+
+.legend-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.legend{
+ width:40px;
+ height:40px;
 }

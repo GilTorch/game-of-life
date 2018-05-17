@@ -1,13 +1,14 @@
-export default function generateBoard(rows, columns, randomValue) {
+export default function generateBoard(rows, columns, random) {
     var arr = [];
 
     for (var i = 0; i < rows; i++) {
         var row = [];
         for (var j = 0; j < columns; j++) {
-            if (randomValue) {
-                row.push(Math.round(Math.random() * 1));
+            if (random) {
+                var randomValue=Math.round(Math.random() * 1);
+                row.push({status:randomValue,newborn:randomValue});
             } else {
-                row.push(0)
+                row.push({status:0,newborn:0})
             }
 
         }
@@ -29,11 +30,11 @@ function getLiveNeighbors(row, col, board) {
             var x=(row+i+rows)%rows;
             var y=(col+j+cols)%cols;
 
-            liveNeighbors+=board[x][y];
+            liveNeighbors+=board[x][y].status;
         }
     }
 
-    liveNeighbors-=board[row][col];
+    liveNeighbors-=board[row][col].status;
     return liveNeighbors;
 }
 
@@ -45,12 +46,17 @@ export function applyGameRules(board) {
     for (var i = 0; i < rows; i++) {
         for (var j = 0; j < columns; j++) {
             var liveNeighbors = getLiveNeighbors(i, j, board);
-            if (board[i][j] === 1 && (liveNeighbors < 2 || liveNeighbors > 3)) {
-                newBoard[i][j] = 0;
-            } else if (board[i][j] === 0 && liveNeighbors === 3) {
-                newBoard[i][j] = 1;
+            if (board[i][j].status === 1 && (liveNeighbors < 2 || liveNeighbors > 3)) {
+                newBoard[i][j].status = 0;
+                newBoard[i][j].newborn=0;
+            } else if (board[i][j].status === 0 && liveNeighbors === 3) {
+                newBoard[i][j].status = 1;
+                newBoard[i][j].newborn=1;
             } else {
-                newBoard[i][j] = board[i][j];
+
+
+                newBoard[i][j].status = board[i][j].status;
+                newBoard[i][j].newborn=0;
             }
         }
     }

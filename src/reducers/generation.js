@@ -3,6 +3,9 @@ function generation(state=0,action){
         case 'TICK':
             return state+1;
         break;
+        case 'CLEAR':
+            return state;
+        break;
         default:
             return state;
         break;

@@ -12,6 +12,10 @@ class Board extends Component {
         }
     }
 
+    shouldComponentUpdate(nextProps){
+        return nextProps.board!==this.props.board;
+    }
+
     render() {        
 
         return (
@@ -20,7 +24,7 @@ class Board extends Component {
                 {this.props.board.map((row,i)=>
                     <tr key={i}>
                         {row.map((element,j)=>
-                          <Cell key={j} alive={this.props.board[i][j]}  handleClick={()=>this.props.toggleCellState(i,j)}/>
+                          <Cell key={j} alive={this.props.board[i][j].status} newborn={this.props.board[i][j].newborn}  handleClick={()=>this.props.toggleCellState(i,j)}/>
                         )}
                     </tr>
                 )}

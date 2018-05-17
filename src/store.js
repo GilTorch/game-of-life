@@ -10,6 +10,7 @@ const defaultRows=50;
 const defaultColumns=50;
 
 const defaultState={
+    cleared:false,
     generation:0,
     speed:50, //MEDIUM,NORMAL,FAST,NO_SPEED
     board:generateDefaultBoard(defaultRows,defaultColumns,true)

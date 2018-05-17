@@ -40,9 +40,9 @@ export function pause() {
 
 }
 
-export function clear(rows,cols) {
+export function clear() {
 
-    return {type: 'CLEAR',rows,cols}
+    return {type: 'CLEAR'}
 
 }
 
