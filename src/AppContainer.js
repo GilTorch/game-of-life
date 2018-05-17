@@ -15,7 +15,7 @@ function mapStateToProps(state){
        running:state.running,
        paused:state.paused,
        generation:state.generation,
-       speed:state.generation,
+       speed:state.speed,
        board:state.board
     }
 }

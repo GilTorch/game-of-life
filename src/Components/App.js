@@ -19,7 +19,7 @@ class App extends Component {
 
 componentDidMount(){
   
-  App.timer=this.createTimer();
+  App.timer=this.createTimer(this.props.speed);
 }
  
 componentWillReceiveProps(newProps){
@@ -27,13 +27,19 @@ componentWillReceiveProps(newProps){
     clearInterval(App.timer);
   }else{
     if(newProps.cleared!==this.props.cleared)
-      App.timer=this.createTimer();
+      App.timer=this.createTimer(newProps.speed);
+  }
+
+  
+  if(newProps.speed!==this.props.speed){
+    clearInterval(App.timer);
+    App.timer=this.createTimer(newProps.speed);
   }
 
 }
 
-createTimer(){
-  var timer=setInterval(this.props.tick,this.props.speed);
+createTimer(speed){
+  var timer=setInterval(this.props.tick,speed);
   return timer;
 }
 
@@ -41,24 +47,27 @@ createTimer(){
 
     return (
       <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">Game Of Life</h1>
-        </header>
           <div>
             <h2>Generation: <span>{this.props.generation}</span></h2>
           </div>
-        <AppControls run={this.props.run} clear={this.props.clear} pause={this.props.pause}/>
+        
         <div className="board-container">
            <Legends/>  
           <Board board={this.props.board} {...this.props}/>
         </div>
         <div>
-          <h2>Change Board Size:</h2>
-          <SizeControls handleClick={(x,y)=>this.props.changeBoardSize(x,y)} />
-        </div>
-        <div>
-          <h2>Change Simulation Speed:</h2>
-          <SpeedControls handleClick={(x,y)=>this.props.changeSpeed(x,y)}/>
+          <div>
+            <h2>Change Board Size:</h2>
+            <SizeControls handleClick={(x,y)=>this.props.changeBoardSize(x,y)} />
+          </div>
+          <div>
+            <h2>Controls:</h2>
+            <AppControls run={this.props.run} clear={this.props.clear} pause={this.props.pause}/>
+          </div>
+          <div>
+            <h2>Change Simulation Speed:</h2>
+            <SpeedControls handleClick={(x,y)=>this.props.changeSpeed(x,y)}/>
+          </div>
         </div>
       </div>
     );

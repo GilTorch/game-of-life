@@ -4,7 +4,7 @@ function generation(state=0,action){
             return state+1;
         break;
         case 'CLEAR':
-        case 'CLEAR':
+        case 'BOARD_SIZE':
             state=0;
             return state;
         break;

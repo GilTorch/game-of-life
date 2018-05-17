@@ -6,7 +6,7 @@ import generateDefaultBoard from './GenerateBoard';
 
 //default data
 
-const defaultRows=30;
+const defaultRows=20;
 const defaultColumns=30;
 
 const defaultState={
