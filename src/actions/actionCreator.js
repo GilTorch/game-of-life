@@ -30,6 +30,7 @@ export function tick(){
     return {type:'TICK'}
 }
 
+
 export function toggleCellState(row, col) {
     return {type: 'TOGGLE_CELL_STATE',row,col}
 }

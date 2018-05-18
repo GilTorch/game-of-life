@@ -6,6 +6,7 @@ import paused from './paused';
 import { combineReducers } from 'redux';
 
 
+
  const rootReducer=combineReducers({
     cleared,
     paused,

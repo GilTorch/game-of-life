@@ -44,7 +44,7 @@ createTimer(speed){
 }
 
   render() {
-
+    console.log('props from redux: '+this.props.rows);
     return (
       <div className="App">
           <div>
