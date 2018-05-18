@@ -10,7 +10,6 @@ const defaultRows=20;
 const defaultColumns=30;
 
 const defaultState={
-    running:true,
     cleared:false,
     paused:false,
     generation:0,

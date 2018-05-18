@@ -12,7 +12,6 @@ function mapStateToProps(state){
 
     return {
        cleared:state.cleared,
-       running:state.running,
        paused:state.paused,
        generation:state.generation,
        speed:state.speed,
@@ -23,6 +22,7 @@ function mapStateToProps(state){
 function mapDispacthToProps(dispatch){
     return bindActionCreators(actionCreators,dispatch);
 }
+
 
 
 const AppContainer=connect(mapStateToProps,mapDispacthToProps)(App);
